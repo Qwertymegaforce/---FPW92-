@@ -1,1 +1,8 @@
 Список команд: 
+py manage.py shell
+user1 = User.objects.create_user(username = 'Петр Петрович')
+user2 = User.objects.create_user(username = 'Иван Иванович')
+Author.objects.create(author_Relation = user1)
+Author.objects.create(author_Relation = user1)
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
