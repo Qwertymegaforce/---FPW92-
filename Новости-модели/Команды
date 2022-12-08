@@ -10,3 +10,6 @@ Category.objects.create(name = 'Информейшенл Текнологиес'
 Category.objects.create(name = 'Рисерч энд стадиес')
 Category.objects.create(name = 'Политикс')
 Category.objects.create(name = 'Рандом Стафф')
+Post.objects.create(author = author1, title = 'Новость 1', text = 'Рандом', type = 'НВ')
+Post.objects.create(author = author2, title = 'Новость 2', text = 'Рандом2', type = 'НВ')
+Post.objects.create(author = author1, title = 'Статья', text = 'Рандом3', type = 'СТ')
