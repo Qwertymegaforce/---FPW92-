@@ -21,3 +21,6 @@ com4.like()
 post1.like()
 post1.dislike()
 post1.preview()
+post1.author
+post1.category
+post1.text
