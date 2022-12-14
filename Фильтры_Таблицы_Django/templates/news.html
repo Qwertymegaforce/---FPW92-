@@ -1,0 +1,37 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block title %}
+Новости
+{% endblock title %}
+{% block content %}
+<h1>Все новости</h1>
+<hr>
+<h3> {{ current|date:'M d Y' }} </h3>
+
+<h3>{{ main_event|default_if_none:"Эпохальных событий не намечается!" }}</h3>
+
+{% if posts %}
+
+<table style="border-collapse: collapse; width: 100%;" border="1">
+<tbody>
+<tr>
+    <td style="width: 18.3239%; text-align: center;"><h5>Автор</h5></td>
+    <td style="width: 21.1648%; text-align: center;"><h5>Название</h5></td>
+    <td style="width: 15.9091%; text-align: center;"><h5>Категория</h5></td>
+    <td style="width: 44.6022%; text-align: center;"><h5>Текст</h5></td>
+</tr>
+{% for post in posts %}
+<tr>
+<td style="width: 18.3239%; text-align: center;">{{post.author}}</td>
+<td style="width: 21.1648%; text-align: center;">{{post.title}}</td>
+<td style="width: 15.9091%; text-align: center;">{{post.category }}</td>
+<td style="width: 44.6022%; text-align: center;">{{post.text  | cursed_words | truncatechars:20 }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<h1>Бизнес не процветает, новостей не дождетесь!</h1>>
+
+{% endif %}
+{% endblock content %}
