@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% block content %}
+<h4>Название статьи</h4>
+<hr>
+<i> {{ post.title }} </i>
+<hr>
+<h4>Категория статьи</h4>
+<hr>
+<i> {{ post.category }} </i>
+<hr>
+<h4>Текст статьи</h4>
+<hr>
+<i> {{ post.text | cursed_words }} </i>
+<hr>
+
+{% endblock content %}
