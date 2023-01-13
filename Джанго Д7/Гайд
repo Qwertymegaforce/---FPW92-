@@ -1,0 +1,5 @@
+Запуск Селери celery -A NewsPaper worker -l INFO --concurrency 1 -P solo
+Запуск Селери периодические задачи celery -A PROJECT beat -l INFO
+Запуск Джанго py manage.py runserver 
+
+В параметре crontab я намеренно ничего не оставил, чтобы приходило каждую минуту, но по сути там надо написать (hour=8, minute=0, day_of_week='monday')
