@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости за неделю:</title>
+</head>
+<body>
+{% for post in posts %}
+<p>{{ post.author }}, {{ post.title }}, {{ post.category }}</p>
+<p><a href="{{link}}{{post.id}}">Заруинить свою жизнь</a></p>
+{% endfor %}
+</body>
+</html>
