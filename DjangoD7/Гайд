@@ -1,0 +1,3 @@
+celery -A News  beat -l INFO
+celery -A News worker -l INFO --concurrency 1 -P solo
+py manage.py runserver
