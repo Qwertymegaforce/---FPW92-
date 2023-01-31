@@ -1,0 +1,82 @@
+Здравствуйте, добавил словарь сюда, чтобы вам было удобнее, он также есть и в settings.py, как и все три файла.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'True': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'False': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'formatters': {
+        'for_debug': {
+            'format': '{asctime} - {levelname} - {module} - {message}',
+            'style': '{',
+        },
+        'for_warning': {
+            'format': '{asctime} - {levelname} - {module} - {message} - {pathname}',
+            'style': '{',
+        },
+        'for_error_and_critical': {
+            'format': '{asctime} - {levelname} - {module} - {message} - {pathname} - {exc_info}',
+            'style': '{',
+        }
+    },
+    'handlers': {
+        'console': {
+            'filters': ['True'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'for_debug',
+        },
+        'general': {
+            'filters': ['False'],
+            'class': 'logging.FileHandler',
+            'formatter': 'for_debug',
+            'filename': 'general.log',
+        },
+        'errors': {
+            'class': 'logging.FileHandler',
+            'formatter': 'for_error_and_critical',
+            'filename': 'errors.log',
+        },
+        'security': {
+            'class': 'logging.FileHandler',
+            'formatter': 'for_error_and_critical',
+            'filename': 'security.log',
+        },
+        'mail_admins': {
+            'filters': ['False'],
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'for_warning',
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', 'general'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['errors', 'mail_admins'],
+            'level': 'ERROR',
+        },
+        'django.server': {
+            'handlers': ['errors', 'mail_admins'],
+            'level': 'ERROR',
+        },
+        'django.security': {
+            'handlers': ['security'],
+            'level': 'INFO',
+        },
+        'django.template': {
+            'handlers': ['errors'],
+            'level': 'ERROR',
+        },
+        'django.db.backends': {
+            'handlers': ['errors'],
+            'level': 'ERROR',
+        },
+    },
+}
