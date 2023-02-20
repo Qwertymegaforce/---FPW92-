@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr>
+{{ad.author}}
+<hr>
+{{ad.title}}
+<hr>
+{{ad.time_creation}}
+<hr>
+{{ad.category}}
+<hr>
+{{ad.text}}
+<hr>
+
+ <center><p><form action="{% url 'home' %}">
+      <button type="submit"> На главную </button>
+    </form></center></p>
+
+
+<img src="{{ ad.file.url }}" height="720" width="1280">
+<form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit"> Откликнуться </button>
+</form>
+</body>
+
+
+</html>

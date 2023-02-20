@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link type="text/css" href="{% static 'ads/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<h1><p style="text-align: center;"><strong>Добро пожаловать на главную и единственную страницу этого сайта!</strong></p></h1>
+<p style="text-align: center;"><em>Соломонов Егор FPW92 - Финальный проект по Django. Доска объявлений.</em></p>
+
+{% if request.user.is_authenticated %}
+
+    <center><i><h2> Вы вошли в систему: {{ user.username }}</h2></i></center>
+
+    <center><p><form action="{% url 'logout' %}">
+      <button type="submit">Выйти</button>
+    </form></center></p>
+
+ <center><p><form action="{% url 'create_add' %}">
+      <button type="submit">Создать запись</button>
+    </form></center></p>
+
+ <center><p><form action="{% url 'response_list' %}">
+      <button type="submit">Мои отклики</button>
+    </form></center></p>
+
+{% for ad in ads %}
+
+<ul>
+    <hr>
+    {{ad.time_creation}}
+    {{ad.category}}
+    <p> Объявление оставлено пользователем: <h4>{{ad.author}}</h4> </p>
+    <hr>
+    <li> <h2> {{ ad.title }} </h2> </li>
+    <p> {{ad.text|linebreaks}} </p>
+    <p> <a href="{{ ad.get_absolute_url }}" > Читать </a> </p>
+    {% if request.user == ad.author %}
+    <p> <a href="{% url 'update_add' ad.pk%}" > Изменить </a> </p>
+    <p> <a href="{% url 'delete_add' ad.pk%}" > Удалить </a> </p>
+    {% elif request.user.is_superuser  %}
+    <p> <a href="{% url 'update_add' ad.pk%}" > Изменить </a> </p>
+    <p> <a href="{% url 'delete_add' ad.pk%}" > Удалить </a> </p>
+    {% else %}
+    {% endif %}
+</ul>
+
+
+
+{% endfor %}
+
+
+{% if page_obj.has_other_pages %}
+
+{% if page_obj.has_previous %}
+ <center><a href="?page={{ page_obj.previous_page_number }}"> Предыдущая страница </a></center>
+{% endif %}
+
+    {% for page in paginator.page_range %}
+        {% if page_obj.number == page %}
+            <h2><center>{{ page }}</center></h2>
+        {% elif page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
+            <h2><center><a href="?page={{page}}">{{ page }}</a></center></h2>
+        {% endif %}
+    {% endfor %}
+
+{% if page_obj.has_next %}
+ <center><a href="?page={{ page_obj.next_page_number }}"> Следующая страница</a></center>
+{% endif %}
+
+{% endif %}
+
+{% else %}
+    <center><form action="{% url 'register' %}">
+      <button type="submit">Регистрация</button>
+    </form></center>
+
+    <center><p><form action="{% url 'login' %}">
+      <button type="submit">Вход</button>
+    </form></center></p>
+
+{% endif %}
+</body>
+</html>
