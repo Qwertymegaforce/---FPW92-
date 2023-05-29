@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\chat.css' %}">
+    <title>Чат</title>
+</head>
+<body>
+    
+    <div class="wrapper">
+    <header class="header">
+
+        <div class="all_header_div">
+
+            <div class="chat_data">
+
+                <div class="chat_picture">
+                    {% if chat.personal %}
+                    {% if add %}
+                    <img src="{{ image.url }}" alt="" class="chat_img">
+                    {% else %}
+                    <img src="{% static 'chat\img\default_avatar.jpeg' %}" alt="">
+                    {% endif %}
+                    {% else %}
+                    <img src="{{chat.image.url}}" alt="" class="chat_img">
+                    {% endif %}
+                </div>
+
+                <div class="chat_name">
+
+                    {% if chat.personal %}
+
+                    <span class="span_chat_name">
+                        {{ first_name }}
+                        {{ last_name }}
+                    </span>
+
+                    {% else %}
+
+                    <span class="span_chat_name">{{ chat.name }}</span>
+                    
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <div class="back_to_main">
+                <a href="{% url 'homepage' %}" class="back_to_main_sign"> На главную</a>
+            </div>
+
+        </div>
+       
+    </header>
+
+
+
+    <main class="main">
+        <div class="for_sending_div">
+        <input type="text" placeholder="Написать" id="message_input">
+        <button type="submit" id="message_button"> Отправить </button>
+        </div>
+        <div class="messages" id="all_message_div">
+
+        </div>
+    </main>
+
+
+
+    <footer class="footer">
+        
+    </footer>
+    {{room_id|json_script:"room-id"}}
+    <script type="text/javascript" src="{% static 'chat/js/chat.js' %}"></script>
+</body>
+</html>

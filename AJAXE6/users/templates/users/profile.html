@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\profile\profile.css' %}">
+    <title>Ваш профиль</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+
+            <div class="your_profile_div">
+                <span class="your_profile_sign">Ваш профиль</span>
+            </div>
+    
+            <div class="back_to_main_div">
+                <a href="{% url 'homepage' %}" class="back_to_main_sign">На главную</a>
+            </div>
+
+        </header>
+
+        <main>
+            <div class="profile_container_div">
+
+                <div class="div_picture">
+
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="" class="picture"> 
+                    {% else %}
+                    <img src="{% static 'chat\img\default_avatar.jpeg' %}" alt="" class="picture">
+                    {% endif %}
+                    <input type="file" id="file_input" accept="image/*"> 
+                    
+
+                </div>
+
+                <div class="div_data">
+
+                    <input type="text" value="{{ user.first_name }}" placeholder="Изменить имя" class="input_text" id="fn_input"> <br>
+                    <input type="text" value="{{ user.last_name }}" placeholder="Изменить фамилию" class="input_text" id="ln_input"> <br>
+
+                    <button type="submit" id="btn"> Сохранить </button>
+
+                </div>
+
+            </div>
+        </main>
+
+
+        <footer>
+
+
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="{% static 'chat/js/profile.js' %}"></script>
+</body>
+</html>

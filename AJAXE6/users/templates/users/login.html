@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\register.css' %}">
+    <title>Вход</title>
+</head>
+<body>
+    <div class="div_form">
+    <span class="register"><h2>Вход</h2></span>
+    <input type="text", id="username" placeholder="Имя пользователя"><br>
+    <input type="password", id="password" placeholder="Пароль"><br>
+    <button type="submit" id="button_sub" class="button_sub"> Вход </button><br>
+    <script type="text/javascript" src="{% static 'chat/js/login.js' %}"></script>
+</div>
+</body>
+</html>

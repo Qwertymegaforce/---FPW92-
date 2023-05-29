@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500&display=swap');
+
+
+body {
+	background: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+}
+
+.div_form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 400px;
+}
+
+
+.div_form .register{
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: black 4px 6px 25px;
+    transition: text-shadow 0.4s ease-in-out;
+
+}
+
+input::placeholder {
+    font-family: 'Wix Madefor Text', sans-serif;
+    text-align: center;
+}
+
+input{
+    margin: 15px;
+    padding: 10px 10px;
+    width: 95%;
+    border: 0;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 17px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.4s ease;
+}
+
+input:focus{
+    outline: none;
+    box-shadow: 0 0 15px 10px #6b42b63f;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+
+
+.div_form .register:hover{
+    text-shadow: rgb(153, 214, 255) 4px 6px 25px;
+    transition: text-shadow 0.4s ease;
+}
+
+.filefield{
+    box-shadow: none;
+}
+
+.button_sub{
+    position: relative;
+    border: none;
+    left: 78%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(67, 164, 255);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+.button_sub:hover{
+    color: rgb(67, 164, 255);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px 4px #6b42b63f;
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+.alert{
+    color: rgb(255, 147, 170);
+    text-shadow: rgb(41, 41, 41) 4px 6px 25px;
+}

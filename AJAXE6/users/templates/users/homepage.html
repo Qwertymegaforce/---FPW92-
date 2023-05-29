@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\homepage\homepage.css' %}">
+    <title>Главная страница</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+
+            {% if request.user.is_authenticated %}
+
+            <div class="profile">
+
+                <div class="div_search">
+                    <form action="{% url 'find_users' %}">
+                    <button>Найти пользователей</button>
+                    </form>
+
+                    <form action="{% url 'create_chat' %}" style="display: inline-block;">
+                        <button type="submit" id="btn"> Создать чат </button>
+                    </form>
+                </div>
+                <div class="div_username">
+                    <span class="first_last_name">
+                    {{ user.first_name }}
+                    <span class="last_name">{{ user.last_name }}</span>
+                    <a href="{% url 'logout' %}" class="logout">Выйти</a>
+                    </span>
+                </div>
+                
+                <div class="div_picture">
+                    {% if user.avatar %}
+                    <a href="{% url 'profile' %}"><img src="{{ user.avatar.url }}" alt="" class="picture"></a>
+                    {% else %}
+                    <a href="{% url 'profile' %}"><img src="{% static 'chat\img\default_avatar.jpeg' %}" alt="" class="picture"></a>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% else %}
+
+            <div class="content_anauthorized">
+
+                <div class="logo_telegramm">
+                     <span class="chat_sign">Мы не следим за вами, честно-честно</span>
+                </div>
+
+                <div class="reg_log">
+                    <a href="{% url 'registration_page' %}" class="reg_link"> Регистрация </a>
+                    <a href="{% url 'login_page' %}" class="log_link"> Вход </a>
+                </div>
+
+
+            </div>
+
+            {% endif %}
+            
+        </header>
+
+
+
+        <main class="main">
+
+            
+
+            <div class="friends">
+                
+                {% if request.user.is_authenticated %}
+
+                <span class="chat_sign">Друзья</span>
+
+                {% endif %}
+            
+            {% for friend in friends %}
+            <div class="profile_friend">
+                <div class="div_friend_picture">
+    
+                    {% if friend.avatar %}
+                    <img src="{{ friend.avatar.url }}" alt="" class="friend_picture"> 
+                    {% else %}
+                    <img src="{% static 'chat\img\default_avatar.jpeg' %}" alt="" class="friend_picture">
+                    {% endif %} 
+                    
+                </div>
+    
+                <div class="div_data">
+                <span style="margin: 30px;" class="user_name">
+                    {{ friend.first_name }}
+                    {{ friend.last_name }}
+                </span>
+                    <form action="{% url 'set_chat' friend.id %}" style="display: inline-block;">
+                        <button type="submit" id="btn"> Чат </button>
+                    </form>
+                    
+                </div>
+            </div>
+                {% endfor %}
+
+                
+            {% if request.user.is_authenticated %}
+
+                <span class="chat_sign">Чаты</span> 
+
+            {% else %}
+
+                <span class="chat_sign">Войдите в систему</span> 
+            
+            {% endif %}
+
+            
+            {% for chat in chats %}
+            <div class="chat_container">
+                
+                <div class="profile_chat">
+
+                    <div class="div_friend_picture">
+                    {% if chat.image %}
+                    <img src="{{ chat.image.url }}" alt="" class="friend_picture"> 
+                    {% else %}
+                    <img src="{% static 'chat\img\default_chat.jpg' %}" alt="" class="friend_picture">
+                    {% endif %} 
+                    </div>
+
+                </div>
+
+
+                <div class="div_data">
+                        <span style="margin: 30px;" class="user_name">
+                            {{ chat.name}}
+                        </span>
+
+                        <form action="{% url 'chat' chat.id %}" style="display: inline-block;">
+
+                            <button type="submit" id="btn"> Чат </button>
+        
+                        </form>
+                
+                </div>
+
+               
+            </div>
+            {% endfor %}
+        </main>
+
+
+
+        <footer class="footer"></footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\create_chat.css' %}">
+    <title>Список друзей</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="header">
+
+            <div class="input_container">
+                <span class="span_chat_name">Список ваших друзей</span>
+            </div>
+
+            <div>
+                <button type="submit" id="create_button">Создать свой чат</button>
+            </div>
+
+            <div class="link_container">
+                <a href="{% url 'homepage' %}" class="back_to_main_sign"> На главную </a>
+            </div>
+
+        </header>
+
+        <main class="main">
+
+            <div class="all_input">
+
+            <input type="text" placeholder="Имя чата" id="name_input">
+            <input type="file" accept="image/*" id="file_input" class="file_input_file"> 
+
+            </div>
+            <div id="container">
+
+            </div>
+        </main>
+
+
+    <footer class="footer"></footer>
+    </div>
+    <script type="text/javascript" src="{% static 'chat/js/create_chat.js' %}"></script>
+</body>
+</html>

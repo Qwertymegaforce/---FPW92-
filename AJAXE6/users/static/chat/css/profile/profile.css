@@ -1,0 +1,153 @@
+header{
+    height: 50px;
+    background: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+    position: sticky;
+    top: 0;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    
+    height: 200px;
+    background: linear-gradient(to left top,#6a93cb 0%, #a4bfef 74%);
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+}
+
+html, body{
+    height: 100%;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+    background-color: rgb(209, 232, 240);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    flex-direction: column;
+
+}
+
+
+.your_profile_sign, .back_to_main_sign{
+    font-family: 'Wix Madefor Text', sans-serif;
+    color: white;
+    text-shadow: black 4px 6px 25px;
+}
+
+.your_profile_sign{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back_to_main_sign{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back_to_main_sign:hover{
+    text-decoration: underline;
+}
+
+.profile_container_div{
+    height: 100%;
+    background-color: rgb(222, 250, 255);
+    border: solid;
+    border-color: #6a93cb;
+    border-width: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.div_picture{
+    height: 100%;
+    margin-right: 70px;
+    margin-left: 30px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.picture{
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+
+.input_text::placeholder {
+    font-family: 'Wix Madefor Text', sans-serif;
+    text-align: center;
+}
+
+.input_text{
+    display: block;
+    margin: 15px;
+    padding: 10px 10px;
+    width: 80%;
+    border: 0;
+    border-radius: 10px;
+    margin-left: 0px;
+    margin-right: 100px;
+    padding: 17px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.4s ease;
+}
+
+.input_text:focus{
+    outline: none;
+    box-shadow: 0 0 15px 10px #6b42b63f;
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+button{
+    margin-bottom: 30px;
+    float: right;
+    margin-right: 25px;
+}
+
+.div_data{
+    margin-top: 15px;
+}
+
+button{
+    border: none;
+    left: 78%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(67, 164, 255);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+button:hover{
+    color: rgb(67, 164, 255);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px 4px #6b42b63f;
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}

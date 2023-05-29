@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:wght@400;500&display=swap');
+
+
+.header{
+    height: 50px;
+    background: linear-gradient(315deg, #6a93cb 0%, #a4bfef 74%);
+    position: sticky;
+    top: 0;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.footer{
+    
+    height: 200px;
+    background: linear-gradient(to left top,#6a93cb 0%, #a4bfef 74%);
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+}
+
+html, body{
+    height: 100%;
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main{
+    flex-grow: 1;
+    background-color: rgb(209, 232, 240);
+}
+
+.picture{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.profile{
+    height: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+}
+
+.div_username{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: right;
+    margin-right: 30px;
+}
+
+.div_picture{
+    display: flex;
+    align-items: center;  
+    height: 100%; 
+    margin-right: 200px;
+    flex: 0;
+}
+
+.first_last_name, .chat_sign{
+    color: white;
+    font-family: 'Wix Madefor Text', sans-serif;
+    text-shadow: black 4px 2px 25px;
+}
+
+.chat_sign{
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+.div_search{
+    display: flex;
+    align-items: center;
+    flex: 2;
+    justify-content: center;
+}
+
+
+.content_anauthorized{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.reg_log{
+    display: flex;
+    align-items: center;
+    margin-right: 0px;
+}
+
+.reg_link{
+    margin-right: 40px;
+}
+
+.reg_link, .log_link, .logout{
+    text-decoration: none;
+    font-family: 'Wix Madefor Text', sans-serif;
+    font-size: 18px;
+    color: white;
+}
+
+.reg_link:hover, .log_link:hover, .logout:hover {
+    text-decoration: underline white;
+}
+
+.logo_telegramm{
+    margin-right: 20px;
+}
+
+.logout{
+    margin-left: 20px;
+    font-size: 12px;
+}
+
+.last_name{
+    margin-left: 5px;
+}
+
+img{
+    object-fit: cover;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #122b3a;
+}
+
+button{
+    border: none;
+    left: 78%;
+    padding: 12px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(67, 164, 255);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+    margin: 10px;
+}
+
+button:hover{
+    color: rgb(67, 164, 255);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 15px 4px #6b42b63f;
+    transition: color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+
+
+.profile_friend{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    width: 500px;
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+    
+}
+
+.friend_picture{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin: 5px;
+    flex: 1;
+}
+
+.div_data{
+    min-width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.friends{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+
+.user_name{
+    font-family: 'Wix Madefor Text', sans-serif;
+}
+
+.chat_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    width: 500px;
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px 2px 2px 2px;
+    border-color: #337ca779;
+}

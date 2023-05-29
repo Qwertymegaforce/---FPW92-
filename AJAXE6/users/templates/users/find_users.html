@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat\css\find_users\find_users.css' %}">
+    <title>Поиск пользователей</title>
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header">
+
+            <div class="input_container">
+                <input type="text" placeholder="Имя" id="name">
+                <input type="text" placeholder="Фамилия" id="surname">
+                <button type="submit" id="sub_button">Поиск</button>
+            </div>
+
+            <div class="link_container">
+                <a href="{% url 'homepage' %}" class="back_to_main_sign"> На главную </a>
+            </div>
+
+        </header>
+
+
+
+        <main class="main">
+            <div class="container" id="container">
+                <span id="default_sign", class="default_sign">Здесь пока ничего нет</span>
+            </div>
+        </main>
+
+
+
+        <footer class="footer"></footer>
+    </div>
+    <script type="text/javascript" src="{% static 'chat/js/find_users.js' %}"></script>
+</body>
+</html>
